@@ -1,6 +1,8 @@
 <template>
   <div class="chat-window">
-    <chat-message v-for="(message, idx) in messages" :key="idx" :data="message"/>
+    <transition-group name="fade">
+      <chat-message v-for="(message, idx) in messages" :key="message + idx" :data="message"/>
+    </transition-group>
   </div>
 </template>
 
@@ -19,4 +21,18 @@ export default {
 
 <style lang="stylus">
 
+  .chat-window
+    display flex
+    position relative
+    flex-direction column
+
+    width 480px
+    height 500px
+
+    background-color #c0c0c0
+
+  .fade-enter-active, .fade-leave-active
+    transition opacity .5s
+  .fade-enter, .fade-leave-to
+    opacity 0
 </style>
