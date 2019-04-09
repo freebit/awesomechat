@@ -27,3 +27,16 @@ export default {
   }
 }
 </script>
+
+<style lang="stylus">
+  .chat-control
+    position relative
+    form
+      display flex
+      position relative
+
+      [type=text]
+        position relative
+        height 32px
+        flex 1
+</style>

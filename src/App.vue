@@ -18,5 +18,6 @@ export default {
 }
 </script>
 <style lang="stylus">
-
+  #app
+    width 320px
 </style>

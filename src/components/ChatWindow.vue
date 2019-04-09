@@ -25,11 +25,14 @@ export default {
     display flex
     position relative
     flex-direction column
+    justify-content flex-end
 
-    width 480px
+    width 100%
     height 500px
 
     background-color #c0c0c0
+
+    overflow auto
 
   .fade-enter-active, .fade-leave-active
     transition opacity .5s

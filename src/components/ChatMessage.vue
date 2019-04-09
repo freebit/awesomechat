@@ -1,7 +1,9 @@
 <template>
   <div class="chat-message" :class="author">
-    <div class="author">{{ data.author }}</div>
-    <div class="text">{{ data.message }}</div>
+    <div class="chat-message-wrapper">
+      <div class="author">{{ data.author }}</div>
+      <div class="text">{{ data.message }}</div>
+    </div>
   </div>
 </template>
 
@@ -26,13 +28,30 @@ export default {
   .chat-message
     display flex
     position relative
-    width 70%
     height auto
-    flex-direction column
+    margin-bottom 8px
 
     &.me
-      background-color lime
+      justify-content flex-end
 
-    &.bot
-      background-color orange
+    &-wrapper
+      display flex
+      flex-direction column
+      width 70%
+      padding 4px
+
+      .me &
+          background-color palegreen
+          border-top-left-radius 8px
+          border-bottom-left-radius 8px
+
+      .bot &
+          background-color #a2a2a2
+          border-top-right-radius 8px
+          border-bottom-right-radius 8px
+
+      .author
+        font-size .8em
+        margin-bottom 4px
+
 </style>
