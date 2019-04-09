@@ -30,9 +30,11 @@ export default {
     width 100%
     height 500px
 
-    background-color #c0c0c0
+    background-color #e5e5e5
 
     overflow auto
+
+    margin-bottom 8px
 
   .fade-enter-active, .fade-leave-active
     transition opacity .5s

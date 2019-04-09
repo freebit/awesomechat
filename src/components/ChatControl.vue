@@ -39,4 +39,5 @@ export default {
         position relative
         height 32px
         flex 1
+        padding 4px
 </style>
