@@ -24,16 +24,12 @@ export default {
   .chat-window
     display flex
     position relative
-    flex-direction column
-    justify-content flex-end
-
+    flex-direction column-reverse
+    flex 1
     width 100%
     height 500px
-
     background-color #e5e5e5
-
     overflow auto
-
     margin-bottom 8px
 
   .fade-enter-active, .fade-leave-active

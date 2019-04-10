@@ -31,7 +31,7 @@ export default {
     height auto
     margin-bottom 8px
 
-    &.me
+    &.im
       justify-content flex-end
 
     &-wrapper
@@ -40,18 +40,20 @@ export default {
       width 70%
       padding 4px
 
-      .me &
+      .im &
           background-color palegreen
           border-top-left-radius 8px
           border-bottom-left-radius 8px
 
       .bot &
-          background-color #a2a2a2
+          background-color #cacaca
           border-top-right-radius 8px
           border-bottom-right-radius 8px
 
       .author
-        font-size .8em
+        font-size .7em
         margin-bottom 4px
+      .text
+        font-size .9em
 
 </style>

@@ -5,18 +5,19 @@ const apiClient = http.create({
 })
 
 const sendMessage = async (message) => {
-  let result = {}
-  await apiClient.post('/get-answer', { q: message }, {
+  let result = null
+
+  const formData = new FormData();
+  formData.set('q', message);
+
+  await apiClient.post('/get-answer', formData, {
     crossDomain: true,
-    withCredentials: true,
     headers: {
       'Acces-Control-Allow-Origin': '*'
     }
-  }).then(response => {
-    if (response.ok) {
-      result = response.a
-    } else {
-
+  }).then(({ data }) => {
+    if (data.ok) {
+      result = data.a
     }
   }).catch(error => {
     throw new Error(error)

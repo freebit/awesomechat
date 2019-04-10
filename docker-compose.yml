@@ -9,4 +9,4 @@ services:
       - 8044:8044
     volumes:
      - ./nginx.conf:/etc/nginx/nginx.conf:ro
-     - ./web:/web/:ro
+     - ./dist:/dist/:ro

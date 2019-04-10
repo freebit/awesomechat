@@ -8,21 +8,31 @@
 </template>
 
 <script>
-// import api from '../api'
+import api from '../api'
 export default {
   name: 'chat-control',
   data: () => ({
     message: ''
   }),
   methods: {
-    messageSubmit () {
-      this.$store.dispatch('addMessage', { message: this.message, author: 'me' })
-      // api.sendMessage(this.message).then((data) => {
-      //   console.log('response data :', data)
-      // })
+    async messageSubmit () {
+      this.$store.dispatch('addMessage', { message: this.message, author: 'im' })
+
+      const message = this.message
+      this.message = ''
+
+      const resp = await api.sendMessage(message)
+      console.log('response data :', resp)
+      setTimeout(() => {
+        this.$store.dispatch('addMessage', { message: resp, author: 'bot' })
+      }, 2000)
+    },
+    fakeMessageSubmit () {
+      this.$store.dispatch('addMessage', { message: this.message, author: 'im' })
+      this.message = ''
       setTimeout(() => {
         this.$store.dispatch('addMessage', { message: 'Hi!', author: 'bot' })
-      }, 3000)
+      }, 2000)
     }
   }
 }
