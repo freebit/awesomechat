@@ -1,7 +1,7 @@
 import http from 'axios'
 
 const apiClient = http.create({
-  baseURL: 'http://chat/api'
+  baseURL: '/api'
 })
 
 const sendMessage = async (message) => {
