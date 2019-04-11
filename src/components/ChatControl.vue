@@ -26,13 +26,6 @@ export default {
       setTimeout(() => {
         this.$store.dispatch('addMessage', { message: resp, author: 'bot' })
       }, 2000)
-    },
-    fakeMessageSubmit () {
-      this.$store.dispatch('addMessage', { message: this.message, author: 'im' })
-      this.message = ''
-      setTimeout(() => {
-        this.$store.dispatch('addMessage', { message: 'Hi!', author: 'bot' })
-      }, 2000)
     }
   }
 }

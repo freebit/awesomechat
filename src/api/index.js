@@ -11,12 +11,7 @@ const sendMessage = async (message) => {
   formData.set('q', message)
 
   await apiClient.post('/get-answer', formData, {
-    crossDomain: true,
-    headers: {
-      'Access-Control-Request-Method': '*',
-      'Access-Control-Request-Headers': 'X-Custom-Header',
-      'Acces-Control-Allow-Origin': '*'
-    }
+    crossDomain: true
   }).then(({ data }) => {
     if (data && data.ok) {
       result = data.a
