@@ -1,8 +1,8 @@
 <template>
   <div class="chat-control">
     <form @submit.prevent="messageSubmit">
-      <input type="text" v-model="message">
-      <button type="submit" :disabled="!message">send</button>
+      <input type="text" v-model="message" ref="input">
+      <button type="submit" :disabled="!message">&#10000;</button>
     </form>
   </div>
 </template>
@@ -22,9 +22,9 @@ export default {
       this.message = ''
 
       const resp = await api.sendMessage(message)
-      console.log('response data :', resp)
       setTimeout(() => {
         this.$store.dispatch('addMessage', { message: resp, author: 'bot' })
+        this.$refs.input.focus()
       }, 2000)
     }
   }
@@ -33,6 +33,7 @@ export default {
 
 <style lang="stylus">
   .chat-control
+    $control-height = 44px
     position relative
     form
       display flex
@@ -40,7 +41,40 @@ export default {
 
       [type=text]
         position relative
-        height 32px
+        box-sizing border-box
+        height $control-height
         flex 1
         padding 4px
+
+        --webkit-appearance none
+
+        border 1px solid lightsteelblue
+
+      [type="submit"]
+        $size = 32px;
+        position relative
+        display flex
+        appearance none
+        -webkit-appearance none
+        -moz-appearance none
+
+        width $control-height
+        height $control-height
+        padding 0
+
+        justify-content center
+        align-items center
+
+        border 1px solid lightsteelblue
+        border-left none
+        background-color transparent
+
+        font-family -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+        font-size 1.7em
+
+        cursor pointer
+
+        &[disabled] {
+          cursor none
+        }
 </style>

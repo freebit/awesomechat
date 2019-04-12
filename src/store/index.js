@@ -6,7 +6,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    messages: []
+    messages: [],
+    channels: []
   },
   mutations: {
     ADD_MESSAGE (store, message) {

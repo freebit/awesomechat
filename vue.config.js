@@ -1,3 +1,4 @@
+const WebpackBarPlugin = require('webpackbar')
 
 module.exports = {
   publicPath: '/',
@@ -13,5 +14,10 @@ module.exports = {
       warnings: true,
       errors: true
     }
+  },
+  configureWebpack: {
+    plugins: [
+      new WebpackBarPlugin()
+    ]
   }
 }

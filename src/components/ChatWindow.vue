@@ -28,9 +28,10 @@ export default {
     flex 1
     width 100%
     height 500px
+    min-height 120px
     background-color #e5e5e5
     overflow auto
-    margin-bottom 8px
+    // margin-bottom 8px
 
   .fade-enter-active, .fade-leave-active
     transition opacity .5s
