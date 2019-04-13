@@ -15,8 +15,8 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    addMessage ({ commit }, { message, author }) {
-      commit('ADD_MESSAGE', new Message(message, author))
+    addMessage({ commit }, { author, message }) {
+      commit('ADD_MESSAGE', new Message({ author, message }))
     }
   }
 })

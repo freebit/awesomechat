@@ -1,7 +1,10 @@
 <template>
   <div class="chat-message" :class="author">
     <div class="chat-message-wrapper">
-      <div class="author">{{ data.author }}</div>
+      <div class="chat-message-header">
+        <div class="author">{{ data.author }}</div>
+        <div class="time">{{ data.time }}</div>
+      </div>
       <div class="text">{{ data.message }}</div>
     </div>
   </div>
@@ -26,6 +29,8 @@ export default {
 
 <style lang="stylus">
   .chat-message
+    $border_radius = 8px
+
     display flex
     position relative
     height auto
@@ -38,22 +43,41 @@ export default {
       display flex
       flex-direction column
       width 70%
-      padding 4px
+      padding 8px
 
       .im &
           background-color palegreen
-          border-top-left-radius 8px
-          border-bottom-left-radius 8px
+          border-top-left-radius $border_radius
+          border-bottom-left-radius $border_radius
 
       .bot &
           background-color #cacaca
-          border-top-right-radius 8px
-          border-bottom-right-radius 8px
+          border-top-right-radius $border_radius
+          border-bottom-right-radius $border_radius
+
+    &-header
+      display flex
+      position relative
+      margin-bottom 4px
+      align-items baseline
+      padding 2px 4px
+
+      .im &
+        border-top-left-radius $border_radius - 2
+        background-color lighten(palegreen, 3)
+      .bot &
+        background-color lighten(#cacaca, 3)
+        border-top-right-radius $border_radius - 2
 
       .author
         font-size .7em
-        margin-bottom 4px
-      .text
-        font-size .9em
+        margin-right 8px
+      .time
+        font-size .5em
+        font-weight bold
+    .text
+      font-size .8em
+      line-height 1.2
+      font-family -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 
 </style>

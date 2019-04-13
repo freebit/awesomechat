@@ -16,15 +16,21 @@ export default {
   }),
   methods: {
     async messageSubmit () {
-      this.$store.dispatch('addMessage', { message: this.message, author: 'im' })
+      this.$store.dispatch('addMessage', {
+        author: 'im',
+        message: this.message
+      })
 
       const message = this.message
       this.message = ''
+      this.$refs.input.focus()
 
       const resp = await api.sendMessage(message)
       setTimeout(() => {
-        this.$store.dispatch('addMessage', { message: resp, author: 'bot' })
-        this.$refs.input.focus()
+        this.$store.dispatch('addMessage', {
+          author: 'bot',
+          message: resp
+        });
       }, 2000)
     }
   }
@@ -75,6 +81,6 @@ export default {
         cursor pointer
 
         &[disabled] {
-          cursor none
+          cursor default
         }
 </style>

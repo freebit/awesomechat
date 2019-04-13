@@ -1,6 +1,11 @@
 export default class Message {
-  constructor (message, author) {
-    this.message = message
-    this.author = author
+  constructor({ author, message }) {
+    this.time = this.timeStamp();
+    this.message = message;
+    this.author = author;
+  }
+
+  timeStamp() {
+    return (new Date()).toLocaleTimeString();
   }
 }
