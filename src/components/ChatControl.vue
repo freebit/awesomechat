@@ -8,12 +8,23 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import api from '../api'
 export default {
   name: 'chat-control',
+  watch: {
+    'currentChannelIndex'(val) {
+      this.$nextTick(() => {
+        this.$refs.input.focus();
+      });
+    }
+  },
   data: () => ({
     message: ''
   }),
+  computed: {
+    ...mapState(['currentChannelIndex'])
+  },
   methods: {
     async messageSubmit () {
       this.$store.dispatch('addMessage', {
@@ -33,6 +44,11 @@ export default {
         });
       }, 2000)
     }
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.$refs.input.focus()
+    });
   }
 }
 </script>

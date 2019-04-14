@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <chat-settings/>
     <chat-window></chat-window>
     <chat-control></chat-control>
   </div>
@@ -8,12 +9,17 @@
 <script>
 import ChatWindow from './components/ChatWindow'
 import ChatControl from './components/ChatControl'
+import ChatSettings from './components/ChatSettings';
 
 export default {
   name: 'app',
   components: {
     ChatWindow,
-    ChatControl
+    ChatControl,
+    ChatSettings
+  },
+  created() {
+    this.$store.dispatch('initApp');
   }
 }
 </script>
@@ -27,4 +33,5 @@ export default {
     height 100vh
     margin 0 auto
     flex-direction column
+    overflow-x hidden
 </style>

@@ -28,6 +28,8 @@ export default {
 </script>
 
 <style lang="stylus">
+  // @import './styles/variables';
+
   .chat-message
     $border_radius = 8px
 
@@ -61,13 +63,15 @@ export default {
       margin-bottom 4px
       align-items baseline
       padding 2px 4px
+      margin-left -8px
+      margin-right -8px
 
       .im &
-        border-top-left-radius $border_radius - 2
-        background-color lighten(palegreen, 3)
+        // border-top-left-radius $border_radius - 2
+        background-color lighten(palegreen, 5)
       .bot &
-        background-color lighten(#cacaca, 3)
-        border-top-right-radius $border_radius - 2
+        background-color lighten(#cacaca, 5)
+        // border-top-right-radius $border_radius - 2
 
       .author
         font-size .7em
